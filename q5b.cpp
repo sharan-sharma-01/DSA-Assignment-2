@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter size of matrix: ";
+    cin >> n;
+
+    int arr[3*n - 2];
+    cout << "Enter elements of tri-diagonal (main, lower, upper): ";
+    for (int i = 0; i < 3*n - 2; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Tri-diagonal Matrix:" << endl;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == j) {
+                cout << arr[i] << " "; 
+            } else if (i == j + 1) {
+                cout << arr[n + (i-1)] << " "; 
+            } else if (i == j - 1) {
+                cout << arr[(2*n - 1) + i] << " ";
+            } else {
+                cout << 0 << " ";
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+}
