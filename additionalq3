@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+void bubbleSort(char str[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (str[j] > str[j + 1]) {
+                char temp = str[j];
+                str[j] = str[j + 1];
+                str[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    char str1[100], str2[100];
+    int count1 = 0, count2 = 0, i;
+
+    cout << "Enter first string: ";
+    cin >> str1;
+
+    cout << "Enter second string: ";
+    cin >> str2;
+
+    for (i = 0; str1[i] != '\0'; i++) {
+        count1++;
+    }
+
+    for (i = 0; str2[i] != '\0'; i++) {
+        count2++;
+    }
+
+    if (count1 != count2) {
+        cout << "Not Anagrams" << endl;
+        return 0;
+    }
+
+    bubbleSort(str1, count1);
+    bubbleSort(str2, count2);
+
+    for (i = 0; i < count1; i++) {
+        if (str1[i] != str2[i]) {
+            cout << "Not Anagrams" << endl;
+            return 0;
+        }
+    }
+
+    cout << "Anagrams" << endl;
+
+    return 0;
+}
